@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Фрагменты можно добавлять в разметку, можно кодом.
+
+    Если добавлять через разметку, фрагменты будут "надуваться"
+    в зависимости от конфигурации устройства.
+
+    У фрагмента должны быть атрибуты либо id либо tag
+    Класс фрагмента указывается в name
+    -->
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment.first"
+        android:name="com.example.ex3.FirstFragment"
+        android:layout_weight="1"
+        />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment.second"
+        android:name="com.example.ex3.SecondFragment"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"/>
+
+</LinearLayout>
