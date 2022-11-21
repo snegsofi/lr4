@@ -27,10 +27,9 @@
             style="?android:attr/ratingBarStyleSmall"
             android:numStars="5"
             android:stepSize="0.1"
-            android:isIndicator="true"
+            android:isIndicator="false"
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
-            android:progressBackgroundTint="@color/orange"
             android:progressTint="@color/orangered"/>
 
     </LinearLayout>
