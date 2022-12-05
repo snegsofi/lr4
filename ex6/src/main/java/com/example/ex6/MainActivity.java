@@ -2,9 +2,7 @@ package com.example.ex6;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
-import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ListFragment signInFragment=new ListFragment();
         FragmentManager fragmentManager =getSupportFragmentManager();

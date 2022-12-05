@@ -1,5 +1,6 @@
 package com.example.ex6;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class NewsAdapter extends
@@ -61,7 +64,7 @@ public class NewsAdapter extends
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(NewsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(NewsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         // Get the data model based on position
         News news = mNews.get(position);
@@ -75,9 +78,18 @@ public class NewsAdapter extends
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.onItemClick(news);
+                clickListener.onItemClick(news,position);
             }
         });
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                clickListener.onRatingChange(rating,position);
+
+            }
+        });
+
     }
 
     // Returns the total count of items in the list
@@ -89,10 +101,8 @@ public class NewsAdapter extends
     private ItemClickListener clickListener;
 
     public interface ItemClickListener{
-        public void onItemClick(News news);
+        void onItemClick(News news, int position);
+        void onRatingChange(Float rating, int position);
     }
-
-
-
 
 }
